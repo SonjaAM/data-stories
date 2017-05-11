@@ -1,4 +1,3 @@
-var colors = ['#FF5722','#039BE5','#009688','#E91E63','#9C27B0','#D84315'];
 
 $.ajax({
     url: 'https://proxy.hxlstandard.org/data.json?url=https%3A//docs.google.com/spreadsheets/d/1CieP74RcfofqdCNxJQSj6GVtuKEZUM9-EYT6HtPUh1Q/edit%23gid%3D0&strip-headers=on&force=on',
@@ -54,7 +53,7 @@ function initGrid(data) {
 		$grid =  $('#grid').isotope({
 		  // options
 		  itemSelector: '.grid-item',
-		  layoutMode: 'fitRows',
+		  //layoutMode: 'fitRows',
 		  masonry: {
       		columnWidth: '.grid-item'
     	  }
@@ -74,19 +73,13 @@ function initGrid(data) {
 function generateGrid(data) {
 
     data.forEach(function (d, i) {
-        console.log("test1=", d,"test2=",i);
 		var classes = 'grid-item';
 
-		var html = '<div id="grid'+i+'" class="'+classes+'"><div class="inner"><img id="image'+i+'" src="'+d["#image"]+'" /><div id="overlay'+i+'" class="overlay">';
+		var html = '<div id="grid'+i+'" class="'+classes+'"><img id="image'+i+'" src="'+d["#image"]+'" /><div id="overlay'+i+'" class="overlay">';
 		html+='<h3 class="grid-title">'+d["#title"]+'</h3><p class="overlaydesc">'+d["#description"]+'</p>';
-		html +='</div></div></div>';
+		html +='</div></div>';
 
 		$('#grid').append(html);
-
-		$('#image'+i).css({"max-width": "100%", "max-height": "auto"});
-
-		var color = Math.floor((Math.random() * (colors.length-1)));
-		$('#overlay'+i).css({'background-color':colors[color]});
 
 		$('#overlay'+i).on('click',function(){
 			if($('#overlay'+i).css('opacity')>0.5){

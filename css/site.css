@@ -1,64 +1,13 @@
+body{
+    text-align:center;
+}
+
 h1 {
     font-size:4em;
 }
 
-.titledesc{
-    font-size:1.4em;
-    color: #999;
-}
-
-.title{
-    font-size:2.5em;
-}
-
 p {
     margin: 5px 0px 0px 0px;
-}
-
-.border{
-    border-width:1px;
-    border-style: solid;
-    border-color: #000;
-}
-
-.overlay{
-    position: absolute;
-    height: 100%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    display: none;
-    opacity:0.9;
-    cursor: pointer;
-    margin: 0px 15px 0px 15px;
-}
-
-.grid-title {
-    margin-top:30px;
-    text-align:center;
-    color:#fff;
-}
-
-.overlaydesc {
-    color:#fff;
-    font-size:1.25em;
-    padding-left:15px;
-    padding-right:15px;
-}
-
-.grid-item {
-    padding: 0 15px 0px 15px;
-    margin-bottom:30px;
-}
-
-.inner {
-    border-style:solid;
-    border-width:1px;
-    border-color:#ccc;
-}
-
-.button-group {
-    padding: 0 30px 20px 30px;
 }
 
 button {
@@ -71,25 +20,87 @@ button {
     color:#428bca;
 }
 
-.highlight {
-    color:#000;
-}
-h1 {
-    font-family: 'EB Garamond';
-    font-style:italic;
+.border{
+    border-width:1px;
+    border-style: solid;
+    border-color: #000;
 }
 
-.links {
+.titledesc{
     font-size:1.4em;
+    color: #999;
+}
+
+.title{
+}
+
+
+.overlay{
+    top:0;
+    left:0;
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    cursor: pointer;
+    background-color: #E5E5E5;
+    width:100%;
+    height:100%;
+    text-align:center;
+}
+
+.overlaydesc {
+    color: #fff;
+    font-size: 1.25em;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#grid{
+    padding: 2em 5em 2em 5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.grid-title {
+    margin-top:30px;
+    text-align:center;
+    color:#fff;
+}
+
+.grid-item {
+    width: 10em;
+    height: 10em;
+    font-size: 100%;
+    margin: 10px;
+    display: block;
+    color: #fff;
+    border-radius: 3px;
+    z-index: 1;
+    transition: all 0.5s linear;
+    overflow:hidden;
+}
+
+.grid-item img{
+    overflow: hidden;
+    border-radius: 4px;
+    height:100%;
 }
 
 .button-group {
-    margin-top:20px;
+    padding: 0 30px 20px 30px;
+    margin-top: 20px;
 }
 
 .header {
     margin-left:15px;
     margin-right:15px;
+}
+
+/*-----------LINKS--------------------*/
+
+.links {
+    font-size:1.4em;
 }
 
 a:link {
