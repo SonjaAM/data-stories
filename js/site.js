@@ -44,8 +44,8 @@ function hxlProxyToJSON(input) {
 
 function initGrid(data) {
     data = hxlProxyToJSON(data);
-    console.log(data);
-	generateGrid(data);
+    generateGrid(data);
+    data = formatKeywords(data);
 	generateButtons(data);
 	var $grid;
 	$('.container').imagesLoaded(function(){
@@ -53,7 +53,7 @@ function initGrid(data) {
 		$grid =  $('#grid').isotope({
 		  // options
 		  itemSelector: '.grid-item',
-		  //layoutMode: 'fitRows',
+		  layoutMode: 'fitRows',
 		  masonry: {
       		columnWidth: '.grid-item'
     	  }
@@ -97,14 +97,25 @@ function generateGrid(data) {
 	});
 }
 
-function generateButtons(data){
-	var filters = [];
-	data.forEach(function(d){
-		//d.tags.forEach(function(tag){
-		//	if(filters.indexOf(tag)==-1){
-		//		filters.push(tag);
-		//	}
-		//});
+function formatKeywords(data) {
+    data.forEach(function (c, i) {
+        var temp = c["#keywords"].split(',');
+        temp.forEach(function (c, i) {
+            temp[i] = c.trim();
+        })
+        c["#keywords"] = temp;
+    })
+    return data;
+}
+
+function generateButtons(data) {
+    var filters = [];
+	data.forEach(function(d, i){
+		d["#keywords"].forEach(function(tag){
+			if(filters.indexOf(tag)==-1){
+				filters.push(tag);
+			}
+		});
 	});
 
 	filters.forEach(function(f){

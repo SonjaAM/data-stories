@@ -99,6 +99,11 @@ button {
 
 /*-----------LINKS--------------------*/
 
+.highlight {
+    /*-colour for selected category-*/
+    color:#000;
+}
+
 .links {
     font-size:1.4em;
 }
