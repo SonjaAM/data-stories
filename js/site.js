@@ -108,18 +108,20 @@ function formatKeywords(data) {
     return data;
 }
 
+
+
 function generateButtons(data) {
     var filters = [];
 	data.forEach(function(d, i){
 		d["#keywords"].forEach(function(tag){
-			if(filters.indexOf(tag)==-1){
+			//if(filters.indexOf(tag)!==-1){
 				filters.push(tag);
-			}
+			//}
 		});
 	});
-
+	console.log(filters);
 	filters.forEach(function(f){
-		var html = '<button class="filterbutton" data-filter=".'+f.replace(' ','_').toLowerCase()+'">'+f+'</button> ';
+		var html = '<button class="filterbutton" data-filter=".'+f.toLowerCase()+'">'+f+'</button> ';
 		$('.filter-button-group').append(html);
 	});
 }
