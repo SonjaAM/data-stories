@@ -69,10 +69,10 @@ button {
 }
 
 .grid-item {
-    width: 10em;
-    height: 10em;
+    width: 15em;
+    height: 15em;
     font-size: 100%;
-    margin: 10px;
+    margin: 20px;
     display: block;
     color: #fff;
     border-radius: 3px;
