@@ -44,8 +44,8 @@ function hxlProxyToJSON(input) {
 
 function initGrid(data) {
     data = hxlProxyToJSON(data);
-    generateGrid(data);
     data = formatKeywords(data);
+    generateGrid(data);
 	generateButtons(data);
 	var $grid;
 	$('.container').imagesLoaded(function(){
@@ -73,7 +73,10 @@ function initGrid(data) {
 function generateGrid(data) {
 
     data.forEach(function (d, i) {
-		var classes = 'grid-item';
+        var classes = 'grid-item';
+        d["#keywords"].forEach(function (c, i) {
+            classes += ' ' + c.replace(' ', '_').toLowerCase();
+        });
 
 		var html = '<div id="grid'+i+'" class="'+classes+'"><img id="image'+i+'" src="'+d["#image"]+'" /><div id="overlay'+i+'" class="overlay">';
 		html+='<h3 class="grid-title">'+d["#title"]+'</h3><p class="overlaydesc">'+d["#description"]+'</p>';
@@ -101,7 +104,7 @@ function formatKeywords(data) {
     data.forEach(function (c, i) {
         var temp = c["#keywords"].split(',');
         temp.forEach(function (c, i) {
-            temp[i] = c.trim();
+            temp[i] = c.trim().replace(' ', '_').toLowerCase();
         })
         c["#keywords"] = temp;
     })
@@ -119,9 +122,8 @@ function generateButtons(data) {
 			//}
 		});
 	});
-	console.log(filters);
 	filters.forEach(function(f){
-		var html = '<button class="filterbutton" data-filter=".'+f.toLowerCase()+'">'+f+'</button> ';
+	    var html = '<button class="filterbutton" data-filter=".' + f + '">' + f.replace('_', ' ').replace(/\b\w/g, function (l) { return l.toUpperCase() }) + '</button> ';
 		$('.filter-button-group').append(html);
 	});
 }
