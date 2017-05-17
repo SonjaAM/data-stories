@@ -116,10 +116,10 @@ function formatKeywords(data) {
 function generateButtons(data) {
     var filters = [];
 	data.forEach(function(d, i){
-		d["#keywords"].forEach(function(tag){
-			//if(filters.indexOf(tag)!==-1){
-				filters.push(tag);
-			//}
+		d["#keywords"].forEach(function(tag, i){
+			if(filters.indexOf(tag)==-1){
+		        filters.push(tag);
+			}
 		});
 	});
 	filters.forEach(function(f){
