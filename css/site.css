@@ -85,6 +85,7 @@ button {
     overflow: hidden;
     border-radius: 4px;
     height:100%;
+    position: relative;
 }
 
 .button-group {
